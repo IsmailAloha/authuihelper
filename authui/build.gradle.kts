@@ -4,7 +4,7 @@ plugins {
     `maven-publish`
 }
 
-version = "1.0.2"
+version = "1.0.3"
 
 android {
     namespace = "com.bttsample.authui"
@@ -34,11 +34,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
@@ -60,7 +60,7 @@ afterEvaluate{
             create<MavenPublication>("maven") {
                 groupId = "com.github.IsmailAloha"
                 artifactId = "authuihelper"
-                version = "1.0.2"
+                version = "1.0.3"
 
                 from(components["release"])
             }
