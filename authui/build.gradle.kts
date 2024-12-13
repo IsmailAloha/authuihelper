@@ -4,7 +4,7 @@ plugins {
     `maven-publish`
 }
 
-version = "1.0.1"
+version = "1.0.2"
 
 android {
     namespace = "com.bttsample.authui"
@@ -60,7 +60,7 @@ afterEvaluate{
             create<MavenPublication>("maven") {
                 groupId = "com.github.IsmailAloha"
                 artifactId = "authuihelper"
-                version = "1.0.0"
+                version = "1.0.2"
 
                 from(components["release"])
             }
