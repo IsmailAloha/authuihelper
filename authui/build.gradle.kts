@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    `maven-publish`
 }
+
+version = "1.0.0"
 
 android {
     namespace = "com.bttsample.authui"
@@ -12,6 +15,13 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 
     buildTypes {
@@ -42,4 +52,18 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+afterEvaluate{
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = "com.github.IsmailAloha"
+                artifactId = "authuihelper"
+                version = "1.0.0"
+
+                from(components["release"])
+            }
+        }
+    }
 }
