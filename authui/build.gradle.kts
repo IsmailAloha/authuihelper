@@ -53,14 +53,14 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 }
 
-afterEvaluate{
-    publishing {
-        publications {
-            create<MavenPublication>("maven") {
-                groupId = "com.github.IsmailAloha"
-                artifactId = "authuihelper"
-                version = "1.0.4"
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.github.IsmailAloha"
+            artifactId = "authuihelper"
+            version = "1.0.4"
 
+            afterEvaluate {
                 from(components["release"])
             }
         }
